@@ -1,0 +1,4 @@
+vimsetting
+==========
+
+vimrc setting
