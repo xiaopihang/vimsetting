@@ -3,6 +3,7 @@
 "# git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 "# git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimprocvimrc# 
 "# :NeoBundleInstall
+"# gfでクラス遷移はhttp://nanapi.co.jp/blog/2013/07/10/nanapi-vim/を参考
 "#
 
 "---------------------------------
@@ -119,7 +120,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'violetyk/vim-phpclass'
 
 let g:phpclass_dir = {
-			\ '/home/lin/svn/stats/share/stats/application/modules/stats/models/' : 'phpclass#camelize'
+			\ '/home/lin/svn/stats/share/stats/application/modules/stats/models/' : 'phpclass#pear'
 			\ }
 
 filetype plugin indent on     " Required!
