@@ -65,6 +65,20 @@ if exists('&ambiwidth')
         set ambiwidth=double
 endif
 
+"---------------------------------
+" netrw.vimのカスタマイズ
+"---------------------------------
+" {{{ netrw.vimのカスタマイズ
+" netrwは常にtree view
+let g:netrw_liststyle = 3
+" CVSと.で始まるファイルは表示しない
+let g:netrw_list_hide = 'CVS,\(^\|\s\s\)\zs\.\S\+'
+" " 'v'でファイルを開くときは右側に開く。(デフォルトが左側なので入れ替え)
+let g:netrw_altv = 1
+" " 'o'でファイルを開くときは下側に開く。(デフォルトが上側なので入れ替え)
+let g:netrw_alto = 1
+" }}}
+
 
 "---------------------------------
 " neobundle
@@ -152,7 +166,24 @@ nnoremap <silent> <C-i><C-a> :<C-u>UniteWithBufferDir -buffer-name=files buffer 
 "---------------------------------
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
+
+" neosnippet.vim {{{
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+nnoremap <silent> <Space>es :<C-u>NeoSnippetEdit -split -vertical
+nnoremap <silent> <Space>rs :<C-u>NeoSnippetSource
+
+" Plugin key-mappings.
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+xmap <C-l> <Plug>(neosnippet_start_unite_snippet_target)
+
+" For snippet_complete marker.
+" if has('conceal')
+" set conceallevel=2 concealcursor=i
+" endif
+
+" }}}
 
 "---------------------------------
 " map
