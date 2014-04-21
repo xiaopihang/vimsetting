@@ -235,3 +235,11 @@ map <Down> <c-w>+
 "map <kMultiply> <c-w>>
 " カーソル位置キーワードをカレントディレクトリファイルからgrep...?
 "map _g :let efsave=&ef<Bar>let &ef=tempname()<Bar>exe ':!grep -n -w "<cword>" * >'.&ef<CR>:cf<CR>:exe ":!rm ".&ef<CR>:let &ef=efsave<Bar>unlet efsave<CR><CR>:cc<CR>
+
+"2014.04
+set noswapfile                   " xxx.swpとかいうファイル作るのやめて
+"ctags -R --languages=PHP --langmap=PHP:.php --php-types=c+f+d -f ~/.vim/tags/twod_main.tags $main
+"http://www.karakaram.com/ctags
+autocmd FileType php set tags=$HOME/.vim/tags/twod_main.tags
+nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
+"\R テキスト内でソースを実行する
