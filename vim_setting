@@ -98,7 +98,9 @@ NeoBundle 'Shougo/unite.vim'
 " add on 20130710
 NeoBundle 'kana/vim-gf-user'
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet'
+"NeoBundle 'Shougo/neosnippet'
+"edit on 20140522 http://d.hatena.ne.jp/pospome/20140223/1393175557
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimfiler'
 
 NeoBundle 'VimClojure'
