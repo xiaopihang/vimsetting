@@ -1,6 +1,6 @@
 WORKSPACE=~/workspace
 export ws=$WORKSPACE
-export PS1="\u@\H \w> "
+export PS1="\u@\H \w > "
 
 alias gco="git checkout"
 alias gst="git status"
