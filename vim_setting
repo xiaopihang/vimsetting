@@ -142,6 +142,41 @@ filetype plugin indent on     " Required!
 " Installation check.
 NeoBundleCheck
 
+" {{{ vinmanager & ctags
+" add on 201410
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'szw/vim-tags'
+
+" taglist
+set tags=tags
+let Tlist_Ctags_Cmd="/usr/bin/ctags"
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+"map <silent> <leader>tl :TlistToggle<CR>
+nmap tl :Tlist<cr>
+let g:tlist_php_settings='php;c:class;d:constant;f:function'
+
+" winmanager
+NeoBundle 'winmanager'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" WinManager 設定
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd vimenter * if !argc() | NERDTree | endif
+"let g:winManagerWindowLayout = 'NERDTree|TagList'
+"let g:winManagerWidth = 30
+"let g:miniBufExplorerMoreThanOne=0
+
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplMoreThanOne=0
+let g:AutoOpenWinManager = 0
+
+let g:winManagerWindowLayout='FileExplorer|TagList'
+nmap wm :WMToggle<cr>
+" }}}
+
 "
 "" unite.vim
 "
