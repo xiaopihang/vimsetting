@@ -14,10 +14,18 @@ alias gdi="git diff"
 alias glg="git log --oneline"
 alias gitk="gitk --all 2>/dev/null &"
 alias gconfig="git config --list"
+alias ll="ls -l"
+alias la="ls -al"
 
 # ssh persistent
+ssh_agent_info="~/.ssh-agent-info"
 echo -n "ssh-agent: "
-source ~/.ssh-agent-info
+if [ ! -f $ssh_agent_info ]; then
+	touch $ssh_agent_info
+fi
+
+source $ssh_agent_info
+
 ssh-add -l >&/dev/null
 if [ $? == 2 ] ; then
 	echo -n "ssh-agent: restart...."
