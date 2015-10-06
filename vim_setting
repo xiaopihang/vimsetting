@@ -1,7 +1,7 @@
 "#
 "# mkdir -p ~/.vim/bundle
 "# git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-"# git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimprocvimrc# 
+"# git clone https://github.com/Shougo/vimproc ~/.vim/bundle/vimproc
 "# :NeoBundleInstall
 "# gfでクラス遷移はhttp://nanapi.co.jp/blog/2013/07/10/nanapi-vim/を参考
 "#
@@ -9,6 +9,7 @@
 "---------------------------------
 " set options
 "---------------------------------
+" {{{ common setting
 set nocompatible                 " vi互換にしない
 "set ffs=unix                    " 改行コードをLFにする(default: unix,dos)
 set noinsertmode                 " デフォルトモードをインサートにしない
@@ -59,11 +60,12 @@ syntax on
 highlight Search ctermbg=Green ctermfg=Black
 highlight Error ctermfg=Black
 
-
 " □とか○の文字があってもカーソル位置がずれないようにする
 if exists('&ambiwidth')
         set ambiwidth=double
 endif
+
+" }}}
 
 "---------------------------------
 " netrw.vimのカスタマイズ
@@ -79,61 +81,71 @@ let g:netrw_altv = 1
 let g:netrw_alto = 1
 " }}}
 
-
 "---------------------------------
 " neobundle
 "---------------------------------
+" {{{ neobundle import
 "set nocompatible               " be iMproved  8行に設定されている 
 filetype off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
-	call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/unite.vim'
-" add on 20130710
-NeoBundle 'kana/vim-gf-user'
-NeoBundle 'Shougo/neocomplcache'
-"NeoBundle 'Shougo/neosnippet'
-"edit on 20140522 http://d.hatena.ne.jp/pospome/20140223/1393175557
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimfiler'
+" 05/10/06 http://qiita.com/musclemikiya/items/58edc801264aca151446
+call neobundle#begin(expand('~/.vim/bundle/'))
+	NeoBundleFetch 'Shougo/neobundle.vim'
+	NeoBundle 'Shougo/vimproc'
+	NeoBundle 'Shougo/vimshell'
+	NeoBundle 'Shougo/unite.vim'
+	" add on 20130710
+	NeoBundle 'kana/vim-gf-user'
+	NeoBundle 'Shougo/neocomplcache'
+	"NeoBundle 'Shougo/neosnippet'
+	"edit on 20140522 http://d.hatena.ne.jp/pospome/20140223/1393175557
+	NeoBundle 'Shougo/neosnippet-snippets'
+	NeoBundle 'Shougo/vimfiler'
+	
+	NeoBundle 'VimClojure'
+	NeoBundle 'jpalardy/vim-slime'
+	NeoBundle 'scrooloose/syntastic'
+	NeoBundle 'tpope/vim-fugitive'
+	NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+	NeoBundle 'tsukkee/unite-tag'
+	NeoBundle 'thinca/vim-quickrun'
+	NeoBundle 'fuenor/qfixgrep.git'
+	NeoBundle 'glidenote/memolist.vim'
+	NeoBundle 'mattn/webapi-vim'
+	NeoBundle 'mattn/gist-vim'
+	NeoBundle 'vim-scripts/sudo.vim'
+	NeoBundle 'JavaScript-syntax'
+	NeoBundle 'jiangmiao/simple-javascript-indenter'
+	
+	" perl
+	NeoBundle 'petdance/vim-perl'
+	NeoBundle 'hotchpotch/perldoc-vim'
+	
+	" www.vim.org
+	NeoBundle 'L9'
+	NeoBundle 'FuzzyFinder'
+	NeoBundle 'rails.vim'
+	NeoBundle 'Source-Explorer-srcexpl.vim'
+	
+	" others
+	NeoBundle 'git://git.wincent.com/command-t.git'
+	NeoBundle 'Lokaltog/vim-powerline'
+	
+	" php-class
+	NeoBundle 'violetyk/vim-phpclass'
+	
+	" add on 201410
+	" taglist
+	NeoBundle 'vim-scripts/taglist.vim'
+	NeoBundle 'szw/vim-tags'
+	" winmanager
+	NeoBundle 'winmanager'
 
-NeoBundle 'VimClojure'
-NeoBundle 'jpalardy/vim-slime'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-NeoBundle 'tsukkee/unite-tag'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'fuenor/qfixgrep.git'
-NeoBundle 'glidenote/memolist.vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'vim-scripts/sudo.vim'
-NeoBundle 'JavaScript-syntax'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
-
-" perl
-NeoBundle 'petdance/vim-perl'
-NeoBundle 'hotchpotch/perldoc-vim'
-
-" www.vim.org
-NeoBundle 'L9'
-NeoBundle 'FuzzyFinder'
-NeoBundle 'rails.vim'
-NeoBundle 'Source-Explorer-srcexpl.vim'
-
-" others
-NeoBundle 'git://git.wincent.com/command-t.git'
-NeoBundle 'Lokaltog/vim-powerline'
-
-" php-class
-NeoBundle 'violetyk/vim-phpclass'
+call neobundle#end()
 
 let g:phpclass_dir = {
 			\ '/home/lin/svn/stats/share/stats/application/modules/stats/models/' : 'phpclass#pear'
@@ -144,12 +156,10 @@ filetype plugin indent on     " Required!
 " Installation check.
 NeoBundleCheck
 
-" {{{ vinmanager & ctags
-" add on 201410
-NeoBundle 'vim-scripts/taglist.vim'
-NeoBundle 'szw/vim-tags'
+" }}}
 
-" taglist
+" {{{ vinmanager & ctags
+
 set tags=tags
 let Tlist_Ctags_Cmd="/usr/bin/ctags"
 let Tlist_Show_One_File=1
@@ -158,8 +168,6 @@ let Tlist_Exit_OnlyWindow=1
 nmap tl :Tlist<cr>
 let g:tlist_php_settings='php;c:class;d:constant;f:function'
 
-" winmanager
-NeoBundle 'winmanager'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " WinManager 設定
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
