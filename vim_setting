@@ -141,7 +141,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	NeoBundle 'Source-Explorer-srcexpl.vim'
 	
 	" others
-	NeoBundle 'https://git.wincent.com/command-t.git'
+	NeoBundle 'https://github.com/wincent/command-t.git'
 	NeoBundle 'Lokaltog/vim-powerline'
 	
 	" php-class
