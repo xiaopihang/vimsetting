@@ -145,20 +145,20 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 	NeoBundle 'Lokaltog/vim-powerline'
 	
 	" php-class
-	NeoBundle 'violetyk/vim-phpclass'
+	"NeoBundle 'violetyk/vim-phpclass'
 	
 	" add on 201410
 	" taglist
 	NeoBundle 'vim-scripts/taglist.vim'
 	NeoBundle 'szw/vim-tags'
 	" winmanager
-	NeoBundle 'winmanager'
+	"NeoBundle 'winmanager'
 
 call neobundle#end()
 
-let g:phpclass_dir = {
-			\ '/home/lin/svn/stats/share/stats/application/modules/stats/models/' : 'phpclass#pear'
-			\ }
+"let g:phpclass_dir = {
+"			\ '/home/lin/svn/stats/share/stats/application/modules/stats/models/' : 'phpclass#pear'
+"			\ }
 
 filetype plugin indent on     " Required!
 
@@ -180,20 +180,20 @@ let g:tlist_php_settings='php;c:class;d:constant;f:function'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " WinManager 設定
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 "let g:winManagerWindowLayout = 'NERDTree|TagList'
 "let g:winManagerWidth = 30
 "let g:miniBufExplorerMoreThanOne=0
 
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplMoreThanOne=0
-let g:AutoOpenWinManager = 0
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
+"let g:miniBufExplMoreThanOne=0
+"let g:AutoOpenWinManager = 0
 
-let g:winManagerWindowLayout='FileExplorer|TagList'
-nmap wm :WMToggle<cr>
+"let g:winManagerWindowLayout='FileExplorer|TagList'
+"nmap wm :WMToggle<cr>
 " }}}
 
 "
